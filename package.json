@@ -1,0 +1,24 @@
+{
+  "name": "knova-learning-loop",
+  "version": "0.1.0",
+  "description": "A voice-first learning loop for professional English recall and adaptive review.",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build --base=./",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test",
+    "check": "npm test && npm run build"
+  },
+  "dependencies": {
+    "ts-fsrs": "5.4.1"
+  },
+  "devDependencies": {
+    "vite": "8.2.1"
+  }
+}

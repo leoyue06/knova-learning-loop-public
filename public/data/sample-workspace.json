@@ -1,0 +1,87 @@
+{
+  "id": "professional-english-sample",
+  "title": "Professional English Learning Loop",
+  "notes": [
+    {
+      "id": "evidence-first-status",
+      "topic": "Clear status updates",
+      "title": "Lead with evidence, not optimism",
+      "readTime": "2 min",
+      "source": [
+        "A useful status update separates evidence from interpretation. Start with an observable result: the checkout test passed 48 of 50 cases. Then name the remaining risk and the next check.",
+        "Avoid phrases such as “probably fixed” unless you also state the evidence and uncertainty. Your listener should know what happened, what remains uncertain, and what you will verify next."
+      ],
+      "questions": [
+        {
+          "id": "three-part-update",
+          "prompt": "Give a three-part status update for a feature whose main test passes but two edge cases still fail.",
+          "coachHint": "Aim for an observed result, a remaining risk, and a next check.",
+          "referenceAnswer": "The main test passed, but two edge cases still fail, so the remaining risk is incomplete boundary handling. I will fix those cases and retest the full suite next.",
+          "criteria": [
+            { "id": "observable-result", "label": "States an observable result", "keywords": ["test passed", "main test", "passed"] },
+            { "id": "remaining-risk", "label": "Names the remaining risk", "keywords": ["remaining risk", "edge cases", "still fail"] },
+            { "id": "next-check", "label": "Commits to a next check", "keywords": ["retest", "verify next", "test next", "next check"] }
+          ]
+        },
+        {
+          "id": "probably-fixed",
+          "prompt": "Why is “probably fixed” weaker than evidence-first language?",
+          "coachHint": "Explain what the listener cannot verify from that phrase.",
+          "referenceAnswer": "“Probably fixed” reports a belief, not observable evidence. It also hides the remaining uncertainty and gives no verification step, so the listener cannot judge the current risk.",
+          "criteria": [
+            { "id": "belief-evidence", "label": "Distinguishes belief from evidence", "keywords": ["belief", "evidence", "observable"] },
+            { "id": "uncertainty", "label": "Makes uncertainty explicit", "keywords": ["uncertainty", "uncertain", "risk"] },
+            { "id": "verification", "label": "Mentions verification", "keywords": ["verify", "verification", "test"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technical-decision",
+      "topic": "Decision communication",
+      "title": "Explain the constraint before the choice",
+      "readTime": "2 min",
+      "source": [
+        "A technical decision becomes easier to evaluate when you explain four things in order: the constraint, the chosen option, the tradeoff, and the condition that would make you revisit it.",
+        "This structure shows judgment without pretending the choice is permanent. It also helps teammates challenge the right assumption instead of debating personal preference."
+      ],
+      "questions": [
+        {
+          "id": "decision-structure",
+          "prompt": "Explain why your team chose a simple local cache instead of a distributed cache for a small prototype.",
+          "coachHint": "Name the present constraint, choice, tradeoff, and revisit condition.",
+          "referenceAnswer": "Because the prototype has one process and needs fast iteration, we chose a local cache. We accept that it will not share state across instances. We will revisit a distributed cache when we add a second instance or measure unacceptable inconsistency.",
+          "criteria": [
+            { "id": "constraint", "label": "Names the current constraint", "keywords": ["prototype", "one process", "fast iteration"] },
+            { "id": "choice", "label": "States the chosen option", "keywords": ["local cache", "chose local"] },
+            { "id": "tradeoff", "label": "Acknowledges the tradeoff", "keywords": ["tradeoff", "not share", "inconsistency"] },
+            { "id": "revisit", "label": "Defines when to revisit", "keywords": ["revisit", "second instance", "when we add"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calibrate-uncertainty",
+      "topic": "Calibrated communication",
+      "title": "Say what would change your mind",
+      "readTime": "2 min",
+      "source": [
+        "Calibrated uncertainty is more useful than vague caution. Give a confidence level, name the evidence behind it, and state what new information would change your view.",
+        "For example: “I have medium confidence because the integration test passes in staging, but I would lower it if production traffic reveals a different request pattern.” This makes uncertainty actionable."
+      ],
+      "questions": [
+        {
+          "id": "confidence-update",
+          "prompt": "Report medium confidence that a release is safe after it passed in staging.",
+          "coachHint": "Include confidence, evidence, and a condition that would change your view.",
+          "referenceAnswer": "I have medium confidence that the release is safe because the integration test passed in staging. I would lower that confidence if production traffic shows a different request pattern or new errors.",
+          "criteria": [
+            { "id": "confidence", "label": "States a confidence level", "keywords": ["medium confidence", "confidence is medium"] },
+            { "id": "evidence", "label": "Names supporting evidence", "keywords": ["passed in staging", "staging test", "integration test"] },
+            { "id": "update-condition", "label": "Says what would change the view", "keywords": ["would lower", "change my view", "production traffic", "new errors"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
