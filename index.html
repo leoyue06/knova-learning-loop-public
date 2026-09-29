@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A two-minute, voice-first learning loop for professional English recall and adaptive review."
+    />
+    <meta name="theme-color" content="#183c33" />
+    <title>KNOVA Learning Loop</title>
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#practice">Skip to practice</a>
+    <div class="page-glow" aria-hidden="true"></div>
+
+    <header class="site-header shell">
+      <a class="brand" href="./" aria-label="KNOVA Learning Loop home">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>
+          <strong>KNOVA</strong>
+          <small>Learning Loop</small>
+        </span>
+      </a>
+      <a class="github-link" href="https://github.com/leoyue06/knova-learning-loop-public">View source ↗</a>
+    </header>
+
+    <main class="shell" id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">A two-minute learning experiment</p>
+          <h1 id="hero-title">Can you explain it<br /><em>without looking?</em></h1>
+        </div>
+        <div class="hero-copy">
+          <p>Read one synthetic note, hide it, explain the idea in English, and get a real adaptive review date.</p>
+          <div class="trust-row" aria-label="Product promises">
+            <span>No account</span><span>No app telemetry</span><span>Transparent scoring</span>
+          </div>
+        </div>
+      </section>
+
+      <ol class="stepper" aria-label="Learning loop steps">
+        <li class="is-active" data-step="read"><span>01</span> Read</li>
+        <li data-step="recall"><span>02</span> Recall</li>
+        <li data-step="reflect"><span>03</span> Reflect</li>
+        <li data-step="review"><span>04</span> Review</li>
+      </ol>
+
+      <section class="learning-card" id="practice" aria-live="polite">
+        <header class="card-header">
+          <div>
+            <p class="eyebrow" id="note-topic">Professional English</p>
+            <h2 id="note-title">Loading sample workspace…</h2>
+          </div>
+          <div class="note-position" id="note-position">Note — of —</div>
+        </header>
+
+        <div class="learning-grid">
+          <article class="source-panel" id="source-panel">
+            <div class="panel-label"><span>Source note</span><span id="read-time">2 min</span></div>
+            <div class="note-body" id="note-body"></div>
+            <div class="button-row">
+              <button class="button button-primary" id="start-recall" type="button">Hide note &amp; recall</button>
+              <button class="button button-quiet" id="speak-note" type="button">Listen</button>
+            </div>
+          </article>
+
+          <section class="practice-panel" id="practice-panel" hidden>
+            <form id="answer-form">
+              <div class="panel-label"><span id="question-position">Question 1</span><span>Open recall</span></div>
+              <h3 id="question-prompt"></h3>
+              <p class="coach-hint" id="coach-hint"></p>
+              <label for="answer">Explain it in your own words</label>
+              <textarea id="answer" name="answer" rows="6" placeholder="Type your answer, or use the microphone…" required></textarea>
+              <p class="field-note">This sample checks visible rubric phrases. It is deterministic—not an AI judgment.</p>
+              <div class="button-row">
+                <button class="button button-primary" type="submit">Check my explanation</button>
+                <button class="button button-quiet" id="voice-answer" type="button">Use microphone</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="feedback-panel" id="feedback-panel" hidden tabindex="-1">
+            <div class="score-orbit" aria-label="Rubric score">
+              <strong id="feedback-score">0</strong><span>/10</span>
+            </div>
+            <div class="feedback-copy">
+              <p class="eyebrow" id="feedback-label">Rubric feedback</p>
+              <h3 id="feedback-heading">Here is what landed.</h3>
+              <div class="criteria-columns">
+                <div><h4>Covered</h4><ul id="matched-list"></ul></div>
+                <div><h4>Try adding</h4><ul id="missing-list"></ul></div>
+              </div>
+              <details>
+                <summary>See one strong answer</summary>
+                <p id="reference-answer"></p>
+              </details>
+              <button class="button button-primary" id="continue-button" type="button">Next question</button>
+            </div>
+          </section>
+
+          <section class="complete-panel" id="complete-panel" hidden tabindex="-1">
+            <div>
+              <p class="eyebrow">Loop complete</p>
+              <h3>You recalled, reflected, and scheduled the next review.</h3>
+            </div>
+            <dl class="result-grid">
+              <div><dt>Average</dt><dd id="final-score">—</dd></div>
+              <div><dt>FSRS rating</dt><dd id="final-rating">—</dd></div>
+              <div><dt>Review again</dt><dd id="final-due">—</dd></div>
+            </dl>
+            <div class="button-row">
+              <button class="button button-primary" id="next-note" type="button">Practice another note</button>
+              <button class="button button-quiet" id="reset-progress" type="button">Reset sample progress</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="privacy-note" aria-labelledby="privacy-heading">
+        <span aria-hidden="true">◎</span>
+        <div><h2 id="privacy-heading">Voice is optional.</h2><p>Typing stays available. Speech recognition may be processed by your browser vendor. This app sends no analytics and stores only sample review progress in this browser.</p></div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <span>Built as a focused learning-outcome experiment.</span>
+      <div class="footer-links">
+        <a href="./LICENSE.txt">AGPL-3.0</a>
+        <a href="./THIRD_PARTY_NOTICES.txt">Third-party notices</a>
+        <button class="text-button" id="footer-reset" type="button">Clear local sample data</button>
+      </div>
+    </footer>
+    <div class="sr-only" id="status-message" role="status" aria-live="polite"></div>
+  </body>
+</html>
